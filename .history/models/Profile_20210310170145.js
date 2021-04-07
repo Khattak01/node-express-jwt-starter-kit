@@ -45,6 +45,25 @@ const ProfileSchema = new Schema({
         },
         coordinates:[{type:String}]
     },
+
+    adminDetail: {
+        admin: {
+            type: Schema.Types.ObjectId,
+            ref: 'subAdmin'
+        },
+        name: {
+            type: String,
+            // required: true
+        },
+        email: {
+            type: String,
+            // required: true
+        },
+        contact: {
+            type: String,
+            // required: true
+        },
+    },
     date: {
         type: Date,
         default: Date.now

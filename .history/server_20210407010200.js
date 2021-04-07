@@ -10,13 +10,13 @@ connectDB()
 app.use(cors())
 app.use(express.json())
 
+
 // app use
 app.use('/api/users', require('./routes/users'))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/tests', require('./routes/tests'))
 app.use('/api/posts', require('./routes/posts'))
 app.use('/api/profile', require('./routes/profile'))
-
 //test route
 app.get('/', function (req, res) {
     res.status(200).send(`Welcome to api`);

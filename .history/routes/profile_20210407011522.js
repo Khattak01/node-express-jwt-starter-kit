@@ -9,6 +9,8 @@ const User = require("../models/User");
 // @route   GET api/profile/me
 // @desc    get the current user profile
 // @access  Private
+// router.get('/test', (req, res) => res.json({ msg: 'Profile Works' }));
+
 router.get("/me", auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({
@@ -101,6 +103,7 @@ router.post(
 // @route   GET api/profile
 // @desc    get all profile profile
 // @access  Public
+
 router.get("/", async (req, res) => {
     try {
         const profiles = await Profile.find().populate("user", ["name", "avater"]);
@@ -114,6 +117,7 @@ router.get("/", async (req, res) => {
 // @route   GET api/profile/user/:user_id
 // @desc    get the profile by id
 // @access  Public
+
 router.get("/user/:user_id", async (req, res) => {
     try {
         const profile = await Profile.findOne({

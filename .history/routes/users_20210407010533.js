@@ -24,6 +24,7 @@ check('password', 'Please enter a password with 6 or more characters').isLength(
         try {
             // see if the user exists
             const emailExists = await User.findOne({ email })
+            // if(emailExists) return res.status(400).send({message:"Email already exists",status:false})
 
             if (emailExists)
                 return res.status(400).json({ errors: [{ msg: 'User already exists' }] })
@@ -86,6 +87,7 @@ router.post(
         try {
             // see if the user exists
             const user = await User.findOne({ email });
+            // if(emailExists) return res.status(400).send({message:"Email already exists",status:false})
 
             if (!user)
                 return res
